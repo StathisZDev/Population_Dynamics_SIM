@@ -1,5 +1,2 @@
-﻿  imgui_impl_win32.cpp
-  imgui.cpp
-  main.cpp
-  Generating Code...
+﻿  u_imgui.cpp
   SimProject.vcxproj -> D:\PopulationDynamics_Sim\SimProject\x64\Debug\SimProject.exe

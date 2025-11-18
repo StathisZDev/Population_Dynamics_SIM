@@ -3,20 +3,11 @@
 #include <libs/imgui/backends/imgui_impl_sdlrenderer3.h>
 #include <libs/imgui/backends/imgui_impl_sdl3.h>
 #include <libs/imgui/imgui.h>
-#include  <includes/TimerManager.h>
+#include <includes/timer_manager.h>
+#include <utils/imgui/u_imgui.h>
+#include <utils/sdl/u_sdl.h>
 
-
-//TEMPORARY CODE TO TEST LIBRARIES. 
-
-int width = 1700;
-int height = 1000;
-
-#define WINDOWSETTINGS001 SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_TRANSPARENT
-//ImGuiIO& io = ImGui::GetIO(); (void)io;       
-
-void CleanUpSDL(SDL_Renderer* ren, SDL_Window* win);
-void CleanUpImGui();
-
+void FunctionTest(); 
 
 int main(int argc, char* argv[])
 {
@@ -24,6 +15,8 @@ int main(int argc, char* argv[])
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
+	int windowWidth = 1500;
+	int windowHeight = 500;
 	if (!SDL_Init(SDL_INIT_VIDEO))
 	{
 		printf("Failed to Initialize Video....\n");
@@ -32,14 +25,13 @@ int main(int argc, char* argv[])
 	}
 
 	int number = 0;
-
-	window = SDL_CreateWindow("SDL3 Test Window!", width, height, WINDOWSETTINGS001);
+	
+	window = SDL_CreateWindow("SDL3 Test Window!", 0, 0, WINDOW_SETTING_DEFAULT);  
+	SDL_SetWindowSize(window, windowWidth, windowHeight);
 	renderer = SDL_CreateRenderer(window, nullptr);
-
-	//Create Context for ImGui    
+ 
 	ImGui::CreateContext();
-
-	//Initialize ImGui for SDL 
+	
 	ImGui_ImplSDL3_InitForSDLRenderer(window, renderer);
 	ImGui_ImplSDLRenderer3_Init(renderer);
 
@@ -64,30 +56,8 @@ int main(int argc, char* argv[])
 		ImGui::NewFrame();
 
 		TimerManager::Update();
-
-		//Simple ImGui UI 
-		{
-			ImGui::Begin("Hello World");
-
-			ImGui::Text("Text Test");
-
-
-			//ImGui::Text((const char*) number);
-
-			ImGui::Text("Current Population Goes HERE");
-			ImGui::NewLine();
-			ImGui::Text("Population: %.1f ", TimerManager::deltaTimem);
-			ImGui::Button("label", { 100,20 });
-			ImGui::End();
-
-			ImGui::Render();
-
-
-		}
-		//https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html
-		//number++;
-		//SDL_Delay(59);
-
+		TimerManager::SetTimerByEvent(FunctionTest, 5, TimerManager::deltaTime);
+		ImGuiTest(TimerManager::deltaTime);
 
 		SDL_SetRenderDrawColor(renderer, 36, 36, 36, 1);
 		SDL_RenderClear(renderer);
@@ -95,30 +65,14 @@ int main(int argc, char* argv[])
 		ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), renderer);
 
 		SDL_RenderPresent(renderer);
-		//SDL_Delay(59);
 	}
-
-
 	CleanUpImGui();
 	CleanUpSDL(renderer, window);
-
 	exit(0);
 }
 
-void CleanUpSDL(SDL_Renderer* ren, SDL_Window* win)
+void FunctionTest()
 {
-	SDL_DestroyRenderer(ren);
-	SDL_DestroyWindow(win);
-	SDL_Quit();
+	printf("Function Call by timer Succesfull");
 }
-
-void CleanUpImGui()
-{
-	ImGui_ImplSDLRenderer3_Shutdown();
-	ImGui_ImplSDL3_Shutdown();
-	ImGui::DestroyContext();
-}
-
-
-
-
+//https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html

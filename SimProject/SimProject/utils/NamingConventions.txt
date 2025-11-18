@@ -15,3 +15,10 @@ bIsAlive;
 bCanReproduce;
 
 folders -no uppercase if possible (huge libary doesnt depend on the path).
+
+cpp and h files 
+===================
+file_one.h
+file_two.cpp
+file.h
+file_one_two.h

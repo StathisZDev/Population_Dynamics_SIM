@@ -28,8 +28,12 @@
     <ClCompile Include="libs\imgui\imgui_tables.cpp" />
     <ClCompile Include="libs\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\timer_manager.cpp" />
+    <ClCompile Include="utils\imgui\u_imgui.cpp" />
+    <ClCompile Include="utils\sdl\u_sdl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="includes\timer_manager.h" />
     <ClInclude Include="libs\imgui\backends\imgui_impl_sdl3.h" />
     <ClInclude Include="libs\imgui\backends\imgui_impl_sdlrenderer3.h" />
     <ClInclude Include="libs\imgui\backends\imgui_impl_win32.h" />
@@ -124,7 +128,8 @@
     <ClInclude Include="libs\sdl\include\SDL3\SDL_version.h" />
     <ClInclude Include="libs\sdl\include\SDL3\SDL_video.h" />
     <ClInclude Include="libs\sdl\include\SDL3\SDL_vulkan.h" />
-    <ClInclude Include="TimerManager.h" />
+    <ClInclude Include="utils\imgui\u_imgui.h" />
+    <ClInclude Include="utils\sdl\u_sdl.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="libs\sdl\LICENSE.txt" />
