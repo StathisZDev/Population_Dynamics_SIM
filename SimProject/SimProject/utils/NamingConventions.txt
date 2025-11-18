@@ -1,0 +1,17 @@
+variables -Camel case
+==================
+deltaTime; 
+thisIsAvariable;
+
+functions -Pascal case
+==================
+Update();
+GetIsAlive();
+SetGlobalTemp();
+
+booleans  -b prefix
+==================
+bIsAlive;
+bCanReproduce;
+
+folders -no uppercase if possible (huge libary doesnt depend on the path).

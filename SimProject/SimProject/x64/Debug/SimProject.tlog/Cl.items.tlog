@@ -1,8 +1,9 @@
-D:\PopulationDynamics_Sim\SimProject\SimProject\imgui\backends\imgui_impl_sdl3.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_impl_sdl3.obj
-D:\PopulationDynamics_Sim\SimProject\SimProject\imgui\backends\imgui_impl_sdlrenderer3.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_impl_sdlrenderer3.obj
-D:\PopulationDynamics_Sim\SimProject\SimProject\imgui\imgui.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui.obj
-D:\PopulationDynamics_Sim\SimProject\SimProject\imgui\imgui_demo.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_demo.obj
-D:\PopulationDynamics_Sim\SimProject\SimProject\imgui\imgui_draw.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_draw.obj
-D:\PopulationDynamics_Sim\SimProject\SimProject\imgui\imgui_tables.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_tables.obj
-D:\PopulationDynamics_Sim\SimProject\SimProject\imgui\imgui_widgets.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_widgets.obj
-D:\PopulationDynamics_Sim\SimProject\SimProject\main.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\main.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\backends\imgui_impl_sdl3.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_impl_sdl3.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\backends\imgui_impl_sdlrenderer3.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_impl_sdlrenderer3.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\backends\imgui_impl_win32.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_impl_win32.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_demo.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_demo.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_draw.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_draw.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_tables.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_tables.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_widgets.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_widgets.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\src\main.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\main.obj
