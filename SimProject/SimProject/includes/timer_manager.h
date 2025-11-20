@@ -15,13 +15,13 @@ namespace TimerManager
 	/// and current frame to time to delta time
 	/// </summary>
 	void Update();
+
 	/// <summary>
-	/// Set a delay to infinetly call a function with a timer
+	/// Set a delay to infinetly call a function with a Delay should be > 0
 	/// </summary>
 	/// <param name="function -->">The function to call when timer expires</param>
-	/// <param name="delay -->">Delay in seconds before calling the function</paarm>    
-	/// Delay should be > 0 else the function will stop excecuting and reuturn void
-	void SetTimerByEvent(void function(),int delay,float deltaTime);
+	/// <param name="delay -->">Delay in seconds before calling the function</param>    
+	void SetTimerByEvent(void function(),int delay,float deltaTime); 
 }
 
 

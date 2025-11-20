@@ -2,38 +2,41 @@
 #include <stdio.h>
 #include <SDL3/SDL.h>
 
-float TimerManager::currentFrame = 0;
-float TimerManager::lastFrame = 0;
-float TimerManager::deltaTime = 0;
-float TimerManager::temp = 0;
-bool TimerManager::bIsCounting = false;
-
-void TimerManager::Update()
+namespace TimerManager
 {
-	lastFrame = currentFrame; 
-	currentFrame = (float)SDL_GetTicks(); 
-	deltaTime += (currentFrame - lastFrame) / 1000.0f;
-}
+	float currentFrame = 0;
+	float lastFrame = 0;
+	float deltaTime = 0;
+	float temp = 0;
+	bool bIsCounting = false;
 
-void TimerManager::SetTimerByEvent(void function(), int delay, float deltaTime)
-{
-	if (delay <= 0)
+	void Update()
 	{
-		printf("Cant have 0 or negative delay");
-		return;
+		lastFrame = currentFrame;
+		currentFrame = (float)SDL_GetTicks();
+		deltaTime += (currentFrame - lastFrame) / 1000.0f;
 	}
-	if (!TimerManager::bIsCounting)
+
+	void SetTimerByEvent(void function(), int delay, float deltaTime)
 	{
-		temp = delay + deltaTime;
-		TimerManager::bIsCounting = true;
-	}
-	else if (TimerManager::bIsCounting)
-	{
-		if (deltaTime >= temp)
+		if (delay <= 0)
 		{
-			function();
-			TimerManager::bIsCounting = false;
+			printf("Cant have 0 or negative delay");
+			return;
 		}
+		if (!bIsCounting)
+		{
+			temp = delay + deltaTime;
+			bIsCounting = true;
+		}
+		else if (bIsCounting)
+		{
+			if (deltaTime >= temp)
+			{
+				function();
+				bIsCounting = false;
+			}
+		}
+
 	}
-	
 }

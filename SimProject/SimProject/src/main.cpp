@@ -11,7 +11,6 @@ void FunctionTest();
 
 int main(int argc, char* argv[])
 {
-
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
@@ -73,6 +72,6 @@ int main(int argc, char* argv[])
 
 void FunctionTest()
 {
-	printf("Function Call by timer Succesfull");
+	printf("Function Call by timer Succesfull\n");
 }
 //https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html
