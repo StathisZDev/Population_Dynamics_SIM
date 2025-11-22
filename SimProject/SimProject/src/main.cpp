@@ -6,8 +6,8 @@
 #include <includes/timer_manager.h>
 #include <utils/imgui/u_imgui.h>
 #include <utils/sdl/u_sdl.h>
-
-void FunctionTest(); 
+#include <includes/global_state.h>
+#include <includes/settings.h>
 
 int main(int argc, char* argv[])
 {
@@ -24,19 +24,21 @@ int main(int argc, char* argv[])
 	}
 
 	int number = 0;
-	
-	window = SDL_CreateWindow("SDL3 Test Window!", 0, 0, WINDOW_SETTING_DEFAULT);  
+
+	window = SDL_CreateWindow("SDL3 Test Window!", 0, 0, WINDOW_SETTING_DEFAULT);
 	SDL_SetWindowSize(window, windowWidth, windowHeight);
 	renderer = SDL_CreateRenderer(window, nullptr);
- 
+
 	ImGui::CreateContext();
-	
+
 	ImGui_ImplSDL3_InitForSDLRenderer(window, renderer);
 	ImGui_ImplSDLRenderer3_Init(renderer);
 
 	float curTime = 0.f;
 
 	bool running = true;
+	
+	GlobalState::InitializeGlobalState(STARTING_FOOD, STARTING_TEMPERATURE, ToxityLevel::DISABLED, Fertility::DISABLED, STARTING_POPULATION); 
 
 	while (running)
 	{
@@ -55,7 +57,7 @@ int main(int argc, char* argv[])
 		ImGui::NewFrame();
 
 		TimerManager::Update();
-		TimerManager::SetTimerByEvent(FunctionTest, 5, TimerManager::deltaTime);
+		TimerManager::SetTimerByEvent(GlobalState::Update, WORLD_UPDATE_FREQUENCY, TimerManager::deltaTime);
 		ImGuiTest(TimerManager::deltaTime);
 
 		SDL_SetRenderDrawColor(renderer, 36, 36, 36, 1);
@@ -70,8 +72,4 @@ int main(int argc, char* argv[])
 	exit(0);
 }
 
-void FunctionTest()
-{
-	printf("Function Call by timer Succesfull\n");
-}
 //https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html

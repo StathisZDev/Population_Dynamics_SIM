@@ -17,7 +17,7 @@ namespace TimerManager
 		deltaTime += (currentFrame - lastFrame) / 1000.0f;
 	}
 
-	void SetTimerByEvent(void function(), int delay, float deltaTime)
+	void SetTimerByEvent(void function(), float delay, float deltaTime)
 	{
 		if (delay <= 0)
 		{

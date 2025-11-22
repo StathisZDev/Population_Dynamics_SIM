@@ -6,6 +6,8 @@ D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_demo.cpp;D:\Pop
 D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_draw.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_draw.obj
 D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_tables.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_tables.obj
 D:\PopulationDynamics_Sim\SimProject\SimProject\libs\imgui\imgui_widgets.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\imgui_widgets.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\src\entity.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\entity.obj
+D:\PopulationDynamics_Sim\SimProject\SimProject\src\global_state.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\global_state.obj
 D:\PopulationDynamics_Sim\SimProject\SimProject\src\main.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\main.obj
 D:\PopulationDynamics_Sim\SimProject\SimProject\src\timer_manager.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\timer_manager.obj
 D:\PopulationDynamics_Sim\SimProject\SimProject\utils\imgui\u_imgui.cpp;D:\PopulationDynamics_Sim\SimProject\SimProject\x64\Debug\u_imgui.obj

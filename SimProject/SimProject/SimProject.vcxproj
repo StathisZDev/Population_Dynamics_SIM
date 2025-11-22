@@ -27,12 +27,18 @@
     <ClCompile Include="libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="libs\imgui\imgui_tables.cpp" />
     <ClCompile Include="libs\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\entity.cpp" />
+    <ClCompile Include="src\global_state.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\timer_manager.cpp" />
     <ClCompile Include="utils\imgui\u_imgui.cpp" />
     <ClCompile Include="utils\sdl\u_sdl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="includes\entity.h" />
+    <ClInclude Include="includes\global_state.h" />
+    <ClInclude Include="includes\population_control_enums.h" />
+    <ClInclude Include="includes\settings.h" />
     <ClInclude Include="includes\timer_manager.h" />
     <ClInclude Include="libs\imgui\backends\imgui_impl_sdl3.h" />
     <ClInclude Include="libs\imgui\backends\imgui_impl_sdlrenderer3.h" />
