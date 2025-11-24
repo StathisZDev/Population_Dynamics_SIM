@@ -5,11 +5,16 @@
 
 namespace GlobalState
 {
-	extern int food;
-	extern int temperature;
+	//temporary for debug
+	extern int maturedPopulation;
+	extern uint8_t prematuredDeaths;  
+
+	extern uint32_t food; 
+	extern int8_t temperature;  
 	extern ToxityLevel toxicity; 
 	extern Fertility fertility;  
-	extern std::vector<Entity> livingPopulation;  
+	extern std::vector<Entity> initialPopulation; 
+	extern std::vector<Entity> livingPopulation;   
 	/// <summary>
 	/// Initializes the starting conditions of the simulation 
 	/// </summary>
@@ -17,19 +22,26 @@ namespace GlobalState
 	/// <param name="temperature:">Enviromental factors that affect the entities on a global Scale</param>
 	/// <param name="toxicity"></param>
 	/// <param name="fertility"></param>
-	void InitializeGlobalState(int food,int temperature,ToxityLevel toxicity,Fertility fertility,int startingPopulation); 
+	void InitializeGlobalState(uint32_t food, int8_t temperature, ToxityLevel toxicity, Fertility fertility, uint32_t  startingPopulation);
 	/// <summary>
 	/// Main function to update all variables
 	/// </summary>
 	int GetPopulation();  
+
 	void Update();
+
+	//void ManageMaturity();
+
 	void ManageEnergy(); 
 	void ManageHealth();
-	void ManageDeath(const int index);
+	void ManageGraduation();
+	void ManageDeath(const uint32_t index); 
 	void ManageDecay(Entity& entity);   
 	void ManageStates();
 	void ManageDivision(Entity& entity);
+	int GetPrematureDeaths(); 
 	void GrowFood();
 	void EndSimulation();
+
 	void ConsoleHelper();
 }

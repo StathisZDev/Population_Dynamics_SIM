@@ -1,28 +1,45 @@
 #include <includes/global_state.h>
 #include <stdio.h>
 #include <includes/settings.h>
+#include <includes/timer_manager.h>
 
 namespace GlobalState
 {
-	int food = 0;
-	int temperature = 0;
+	int maturedPopulation = 0;
+	uint8_t prematuredDeaths = 0;  
+	uint32_t  food = 0; 
+	int8_t temperature = 0; 
 	ToxityLevel toxicity = ToxityLevel::DISABLED;  
-	Fertility fertility = Fertility::DISABLED; 
+	Fertility fertility = Fertility::DISABLED;
+	std::vector<Entity> initialPopulation;
 	std::vector<Entity> livingPopulation;
 }
 
-void GlobalState::InitializeGlobalState(int food, int temperature, ToxityLevel toxicity, Fertility fertility,int startingPopulation)
+void GlobalState::InitializeGlobalState(uint32_t food, int8_t temperature, ToxityLevel toxicity, Fertility fertility,uint32_t  startingPopulation) 
 {
 	GlobalState::food = food; 
 	GlobalState::temperature = temperature;
 	GlobalState::toxicity = toxicity;
 	GlobalState::fertility = fertility;		
 	
-	for (int i = 0; i < startingPopulation; i++)
+	for (size_t i = 0; i < startingPopulation; i++) 
 	{
-		livingPopulation.emplace_back();   
+		initialPopulation.emplace_back();
+		initialPopulation[i].SetIsMature(false);
 	}
 }
+void TempCheckMaturity()
+{
+	for (int i = 0; i < GlobalState::initialPopulation.size(); i++)
+	{
+		if (GlobalState::initialPopulation[i].GetIsMature() && !GlobalState::initialPopulation[i].bWascounted)
+		{
+			GlobalState::maturedPopulation++;
+			GlobalState::initialPopulation[i].bWascounted = true;
+		}
+	}
+}
+
 
 void GlobalState::Update()
 { 
@@ -31,16 +48,19 @@ void GlobalState::Update()
 	{
 		ConsoleHelper();
 	}
-	if ((int)GlobalState::livingPopulation.size() == 0)
+	if ((int)GlobalState::livingPopulation.size() == 0 && TimerManager::elapsedTime > LAG_TIMER + 5)
 	{
+		printf("Ending simulation...\n");
 		EndSimulation();
 		return;
 	}
 	ManageStates(); 
+	TempCheckMaturity();     
 }
 
 void GlobalState::ManageEnergy() 
 {
+	if (GlobalState::livingPopulation.size() <= 0)return;
 	for (auto& entity : GlobalState::livingPopulation)
 	{
 		if (GlobalState::food == 0)return;
@@ -56,12 +76,10 @@ void GlobalState::ManageEnergy()
 
 void GlobalState::ManageHealth()
 {
-	int count = 0; 
+	if (GlobalState::livingPopulation.size() <= 0)return;
+	uint32_t  count = 0;    
 	for (auto& entity : GlobalState::livingPopulation)
 	{
-		//if entity's energy has gone to 0 start losing health
-		//else take away a part of its energy
-		//if health is 0 it dies.
 		if (entity.GetEnergy() <= 0) 
 		{
 			entity.SetHealth(entity.GetHealth() - 10);   
@@ -73,13 +91,29 @@ void GlobalState::ManageHealth()
 		if (entity.GetHealth() <= 0)
 		{
 			ManageDeath(count);   
+			count--;
 		}
 		count++;  
 	}
 }
 
-void GlobalState::ManageDeath(const int index)
+void GlobalState::ManageGraduation()
 {
+	if (TimerManager::elapsedTime < LAG_TIMER || TimerManager::elapsedTime > 50)return;
+	for (int i = 0; i < GlobalState::initialPopulation.size(); i++)
+	{
+		if (GlobalState::initialPopulation[i].GetIsMature())
+		{
+			GlobalState::livingPopulation.push_back(std::move(GlobalState::initialPopulation[i]));
+			GlobalState::initialPopulation.erase(initialPopulation.begin() + i); 
+			i--;
+		}
+	}
+}
+
+void GlobalState::ManageDeath(const uint32_t index)
+{
+	if (GlobalState::livingPopulation.size() <= 0)return; 
 	livingPopulation.erase(GlobalState::livingPopulation.begin() + index);
 }
 
@@ -89,8 +123,9 @@ void GlobalState::ManageDecay(Entity& entity)
 }
 
 void GlobalState::ManageStates()
-{
-	GrowFood();  
+{ 
+	GrowFood();
+	ManageGraduation();
 	ManageEnergy();
 	ManageHealth();
 }
@@ -99,6 +134,19 @@ void GlobalState::ManageDivision(Entity& entity)
 {
 	entity.SetDefaults();
 	GlobalState::livingPopulation.emplace_back();   
+}
+
+int GlobalState::GetPrematureDeaths()
+{
+	if (TimerManager::elapsedTime < LAG_TIMER)
+	{
+		return 0;
+	}
+	else
+	{
+		return  STARTING_POPULATION - GlobalState::maturedPopulation; 
+	}
+	return 0;
 }
 
 void GlobalState::GrowFood()
@@ -113,12 +161,12 @@ void GlobalState::EndSimulation()
 
 void GlobalState::ConsoleHelper()
 {
-	printf("Population: %d\n", GlobalState::GetPopulation());
-	printf("Global food: %d\n", GlobalState::food);
-	printf("Called to update the state of the Universe\n\n");
+	//printf("Population: %d\n", GlobalState::GetPopulation());
+	//printf("Global food: %d\n", GlobalState::food);
+	//printf("Called to update the state of the Universe\n\n");
 }
 
 int GlobalState::GetPopulation() 
 {
-	return (int)GlobalState::livingPopulation.size(); 
+	return (uint32_t)GlobalState::livingPopulation.size() + (uint32_t)GlobalState::initialPopulation.size();    
 }
