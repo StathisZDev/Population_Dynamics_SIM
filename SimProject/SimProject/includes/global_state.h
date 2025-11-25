@@ -6,10 +6,14 @@
 namespace GlobalState
 {
 	//temporary for debug
+	extern int optimalTemperature; 
 	extern int maturedPopulation;
-	extern uint8_t prematuredDeaths;  
-
-	extern uint32_t food; 
+	extern uint8_t prematuredDeaths;
+	extern BacteriaTempType bacteriaType;
+	//This changes based on temperature the further away from optimal temp the more
+	//resources they need and take(default is 1).
+	extern int requiredEnergy;   
+	extern int32_t food; 
 	extern int8_t temperature;  
 	extern ToxityLevel toxicity; 
 	extern Fertility fertility;  
@@ -22,7 +26,7 @@ namespace GlobalState
 	/// <param name="temperature:">Enviromental factors that affect the entities on a global Scale</param>
 	/// <param name="toxicity"></param>
 	/// <param name="fertility"></param>
-	void InitializeGlobalState(uint32_t food, int8_t temperature, ToxityLevel toxicity, Fertility fertility, uint32_t  startingPopulation);
+	void InitializeGlobalState(uint32_t food, int8_t temperature, ToxityLevel toxicity, Fertility fertility, uint32_t  startingPopulation, BacteriaTempType tempType);
 	/// <summary>
 	/// Main function to update all variables
 	/// </summary>
@@ -39,9 +43,11 @@ namespace GlobalState
 	void ManageDecay(Entity& entity);   
 	void ManageStates();
 	void ManageDivision(Entity& entity);
-	int GetPrematureDeaths(); 
+	int  GetPrematureDeaths(); 
+	void WipePopulation();
 	void GrowFood();
 	void EndSimulation();
-
+	void CalculateNeededEnergy(); 
 	void ConsoleHelper();
+	void SetOptimalTemperature(); 
 }

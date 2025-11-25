@@ -7,7 +7,3 @@
 /// <param name="ren"></param>
 /// <param name="win"></param>
 void CleanUpSDL(SDL_Renderer* renderer, SDL_Window* window);
-
-//void SetWindowDimensions(); 
-extern int windowWidth;
-extern int windowHeight; 

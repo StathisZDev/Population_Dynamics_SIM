@@ -18,3 +18,11 @@ enum class Fertility
 	HIGH,
 	EXTREME 
 };
+
+enum class BacteriaTempType
+{
+	PSYCHROPHILES,			//OPTIMAL TEMP ~10
+	MESOPHILES,				//OPTIMAL TEMP ~38
+	THERMOPHILES,			//OPTIMAL TEMP ~65
+	HYPERTHERMOPHILES		//OPTIMAL TEMP ~95
+};

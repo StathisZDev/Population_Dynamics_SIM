@@ -22,3 +22,27 @@ file_one.h
 file_two.cpp
 file.h
 file_one_two.h
+
+
+
+temperature test
+{
+Optimal_temperature = 35;
+
+on ManageEnergy()
+get current temperature once before loop based on that 
+call Calculate Needed Energy.
+
+Needed Energy
+{
+currentTemp = 20
+OptimalTemp = 35;
+
+difference = abs(optimal_temperature  - currentTemp)
+35-20 = 15;
+before loop reset required food to 1;(default == 1)
+loop for i < difference i+5
+required food += 1;
+}
+
+}

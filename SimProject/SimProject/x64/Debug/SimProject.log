@@ -1,2 +1,6 @@
-﻿  u_imgui.cpp
+﻿  global_state.cpp
+  main.cpp
+D:\PopulationDynamics_Sim\SimProject\SimProject\src\main.cpp(59,54): warning C4305: 'argument': truncation from 'double' to 'float'
+  u_imgui.cpp
+  Generating Code...
   SimProject.vcxproj -> D:\PopulationDynamics_Sim\SimProject\x64\Debug\SimProject.exe

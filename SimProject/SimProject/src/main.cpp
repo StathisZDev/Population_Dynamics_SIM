@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 
 	bool running = true;
 	
-	GlobalState::InitializeGlobalState(STARTING_FOOD, STARTING_TEMPERATURE, ToxityLevel::DISABLED, Fertility::DISABLED, STARTING_POPULATION); 
+	GlobalState::InitializeGlobalState(STARTING_FOOD, STARTING_TEMPERATURE, ToxityLevel::DISABLED, Fertility::DISABLED, STARTING_POPULATION,BacteriaTempType::PSYCHROPHILES); 
 	GlobalState::livingPopulation.reserve(100000);
 	while (running)
 	{
