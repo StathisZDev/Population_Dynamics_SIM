@@ -66,10 +66,11 @@ int main(int argc, char* argv[])
 	ImGui::CreateContext();
 	ImPlot::CreateContext();  // Create ImPlot context AFTER ImGui context
 
+	SetStyling();
 	// Set font style
 	ImGuiIO& io = ImGui::GetIO();
 	ImFont* font = io.Fonts->AddFontFromFileTTF("fonts/static/OpenSans-Regular.ttf", 24.0f);
-
+	
 	ImGui_ImplSDL3_InitForSDLRenderer(window, renderer);
 	ImGui_ImplSDLRenderer3_Init(renderer);
 	io.Fonts->Build();
@@ -82,7 +83,7 @@ int main(int argc, char* argv[])
 	InitializeData();  // Defined in u_implot.cpp
 	GlobalState::InitializeGlobalState(STARTING_FOOD, STARTING_TEMPERATURE, ToxityLevel::DISABLED, Fertility::DISABLED, STARTING_POPULATION,BacteriaTempType::PSYCHROPHILES); 
 	GlobalState::livingPopulation.reserve(100000);
-
+	
 	// ------------------------------------
 	// MAIN LOOP
 	// ------------------------------------

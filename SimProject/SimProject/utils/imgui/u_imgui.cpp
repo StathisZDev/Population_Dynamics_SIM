@@ -7,10 +7,27 @@ ImVec4 graphWindowBgColor(0.89f, 0.91f, 0.95f, 1.0f);
 ImVec4 menuWindowBgColor(0.90f, 0.88f, 0.83f, 1.0f);
 ImVec4 dataWindowBgColor(0.95f, 0.94f, 0.89f, 1.0f);
 
-void setStyling()
+void SetStyling()
 {
 	// 1. Get a reference to the global style
 	ImGuiStyle& style = ImGui::GetStyle();
+
+	// 1. Fix the "Bloat" (Optional: Manually force scale if auto-detection is wrong)
+	// This is not the recommended approach
+	//ImGui::GetIO().FontGlobalScale = 0.6f; // Tweak this if fonts are too big
+
+	// 2. Fix the "Rounded Corners" (Explicitly force square look)
+	style.WindowRounding = 0.0f;
+	style.FrameRounding = 0.0f;
+	style.GrabRounding = 0.0f;
+	style.TabRounding = 0.0f;
+	style.ScrollbarRounding = 0.0f;
+	style.ChildRounding = 0.0f;
+	style.PopupRounding = 0.0f;
+
+	// 3. Compact the spacing if it feels "bloated"
+	style.ItemSpacing = ImVec2(8, 4);
+	style.FramePadding = ImVec2(4, 3);
 
 	// 2. Define your color (Red, Green, Blue, Alpha)
 	// Let's make a dark grey color

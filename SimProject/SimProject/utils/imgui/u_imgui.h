@@ -15,7 +15,7 @@ extern ImVec4 dataWindowBgColor;
 
 void CleanUpImGui(); 
 
-void setStyling();
+void SetStyling();
 
 
 // Functions for ImGui windows without ImPlot graphs.They will be removed from pushed code

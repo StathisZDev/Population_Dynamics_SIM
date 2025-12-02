@@ -8,9 +8,9 @@
 namespace UImPlot {
 
     inline std::vector<double> time_vec;
-    inline std::vector<double> food_vec; // Ranges: [0,100]
-    inline std::vector<double> temperature_vec; // Ranges: [-100,200]
-    inline std::vector<double> populationSize_vec; // Ranges (in thousands): [0, 1000]
+    inline std::vector<double> food_vec;
+    inline std::vector<double> temperature_vec;
+    inline std::vector<double> populationSize_vec;
 
     inline int currentFood;
 	inline int currentTemperature;
