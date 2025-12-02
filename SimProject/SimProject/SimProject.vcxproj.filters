@@ -46,6 +46,9 @@
     <Filter Include="Fonts\Static">
       <UniqueIdentifier>{fcc7a813-7265-4f2d-afb7-71c39a277fd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="libs\implot">
+      <UniqueIdentifier>{19a1ea96-8a4e-4ac9-9933-6540f39d3f28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libs\imgui\imgui.cpp">
@@ -89,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\implot\implot.cpp">
+      <Filter>libs\implot</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\implot\implot_demo.cpp">
+      <Filter>libs\implot</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\implot\implot_items.cpp">
+      <Filter>libs\implot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -394,6 +406,12 @@
     </ClInclude>
     <ClInclude Include="includes\settings.h">
       <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\implot\implot.h">
+      <Filter>libs\implot</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\implot\implot_internal.h">
+      <Filter>libs\implot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
