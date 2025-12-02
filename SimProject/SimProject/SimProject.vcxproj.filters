@@ -40,6 +40,12 @@
     <Filter Include="libs\sdl\include\SDL3">
       <UniqueIdentifier>{eaefc66b-89c6-40bf-936d-8df3fe9d72d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fonts">
+      <UniqueIdentifier>{93733fa5-d47a-4fe0-97f9-c57f4aaff985}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fonts\Static">
+      <UniqueIdentifier>{fcc7a813-7265-4f2d-afb7-71c39a277fd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libs\imgui\imgui.cpp">
@@ -397,6 +403,12 @@
     <Text Include="libs\sdl\LICENSE.txt">
       <Filter>libs\sdl</Filter>
     </Text>
+    <Text Include="fonts\OFL.txt">
+      <Filter>Fonts</Filter>
+    </Text>
+    <Text Include="fonts\README.txt">
+      <Filter>Fonts</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="libs\sdl\README.md">
@@ -425,5 +437,121 @@
     <Library Include="libs\sdl\lib\SDL3.lib">
       <Filter>libs\sdl\lib</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\OpenSans-Italic-VariableFont_wdth,wght.ttf">
+      <Filter>Fonts</Filter>
+    </Font>
+    <Font Include="fonts\OpenSans-VariableFont_wdth,wght.ttf">
+      <Filter>Fonts</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-Bold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-BoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-ExtraBold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-ExtraBoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-Italic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-Light.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-LightItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-Medium.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-MediumItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-Regular.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-SemiBold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_Condensed-SemiBoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Bold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-BoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-ExtraBold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-ExtraBoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Italic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Light.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-LightItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Medium.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-MediumItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Regular.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-SemiBold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans_SemiCondensed-SemiBoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-Bold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-BoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-ExtraBold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-ExtraBoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-Italic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-Light.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-LightItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-Medium.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-MediumItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-Regular.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-SemiBold.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
+    <Font Include="fonts\static\OpenSans-SemiBoldItalic.ttf">
+      <Filter>Fonts\Static</Filter>
+    </Font>
   </ItemGroup>
 </Project>

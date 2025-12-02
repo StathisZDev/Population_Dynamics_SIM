@@ -138,6 +138,8 @@
     <ClInclude Include="utils\sdl\u_sdl.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="fonts\OFL.txt" />
+    <Text Include="fonts\README.txt" />
     <Text Include="libs\sdl\LICENSE.txt" />
     <Text Include="utils\NamingConventions.txt" />
   </ItemGroup>
@@ -152,6 +154,46 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="libs\sdl\lib\SDL3.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\OpenSans-Italic-VariableFont_wdth,wght.ttf" />
+    <Font Include="fonts\OpenSans-VariableFont_wdth,wght.ttf" />
+    <Font Include="fonts\static\OpenSans-Bold.ttf" />
+    <Font Include="fonts\static\OpenSans-BoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans-ExtraBold.ttf" />
+    <Font Include="fonts\static\OpenSans-ExtraBoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans-Italic.ttf" />
+    <Font Include="fonts\static\OpenSans-Light.ttf" />
+    <Font Include="fonts\static\OpenSans-LightItalic.ttf" />
+    <Font Include="fonts\static\OpenSans-Medium.ttf" />
+    <Font Include="fonts\static\OpenSans-MediumItalic.ttf" />
+    <Font Include="fonts\static\OpenSans-Regular.ttf" />
+    <Font Include="fonts\static\OpenSans-SemiBold.ttf" />
+    <Font Include="fonts\static\OpenSans-SemiBoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-Bold.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-BoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-ExtraBold.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-ExtraBoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-Italic.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-Light.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-LightItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-Medium.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-MediumItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-Regular.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-SemiBold.ttf" />
+    <Font Include="fonts\static\OpenSans_Condensed-SemiBoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Bold.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-BoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-ExtraBold.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-ExtraBoldItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Italic.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Light.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-LightItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Medium.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-MediumItalic.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-Regular.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-SemiBold.ttf" />
+    <Font Include="fonts\static\OpenSans_SemiCondensed-SemiBoldItalic.ttf" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
