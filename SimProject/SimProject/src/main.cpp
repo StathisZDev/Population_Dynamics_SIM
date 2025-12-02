@@ -105,6 +105,17 @@ int main(int argc, char* argv[])
 		TimerManager::Update();
 		TimerManager::SetTimerByEvent(GlobalState::Update, WORLD_UPDATE_FREQUENCY, TimerManager::elapsedTime);
 		
+		// ---------------------------------------------
+		// DEBUG & STYLING EXPERIMENTATION WINDOWS
+		// ---------------------------------------------
+		
+		// Activate this if you want to experiment with styling.
+		// When you're done, go to the SetStyling() function in u_imgui.cpp and add the necessary lines to the code
+		//ImGui::ShowStyleEditor();
+		
+		// Debug Window. It shows what ImGui perceives the Display Size, Framebuffer Scale, and Font Global Scale are
+		//PrintImGuiSettings();
+		
 		// ------------------------------------------------------------------
 		// IMGUI WINDOWS
 		// Add each new window using the format below

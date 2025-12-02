@@ -18,12 +18,12 @@ namespace UImPlot {
 
     inline constexpr double timeMin = 0.0;
     inline constexpr double timeMax = 60.0;
-    inline constexpr double foodMin = 5.0;
-    inline constexpr double foodMax = 90.0;
-    inline constexpr double temperatureMin = -80.0;
+    inline constexpr double foodMin = 0.0;
+    inline constexpr double foodMax = 3000000.0;
+    inline constexpr double temperatureMin = -100.0;
     inline constexpr double temperatureMax = 100.0;
     inline constexpr double populationMin = 0;
     inline constexpr double populationMax = 50000;
 
-	inline constexpr double windowSize = 60.0;
+	inline constexpr double windowSize = 300.0;
 }

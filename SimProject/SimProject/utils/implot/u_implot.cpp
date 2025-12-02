@@ -27,9 +27,9 @@ void InitializeData() {
 
 // PrepareData function that uses global vectors
 void PrepareData() {
-    double newFood = static_cast<double>(GlobalState::food);
+    double newFood = static_cast<double>(GlobalState::food / 1000.0);
     double newTemperature = static_cast<double>(GlobalState::temperature);
-    double newPopulationSize = static_cast<double>(GlobalState::GetPopulation());
+    double newPopulationSize = static_cast<double>(GlobalState::GetPopulation() / 1000.0);
     double t = static_cast<double>(TimerManager::elapsedTime);
 
     if (t <= UImPlot::time_vec.back()) {
@@ -57,9 +57,9 @@ void LinePlotTime(const char* windowTitle, const char* graphTitle) {
     static bool y3_axis = true;
 
     // Set a window of given size for the x-axis
-    // This changes window every 20 secs
+    // This changes window every secs=UImPlot::windowSize
 	double x_min = (int)(UImPlot::time_vec.back() / UImPlot::windowSize) * UImPlot::windowSize;
-    // This follows the line as it moves retaining a window of 20 secs
+    // This follows the line as it moves retaining a window of secs=UImPlot::windowSize
     //double x_min = (time_vec.back() > UImPlot::windowSize) ? (time_vec.back() - UImPlot::windowSize) : 0.0;
     double x_max = x_min + UImPlot::windowSize;
 
@@ -76,15 +76,15 @@ void LinePlotTime(const char* windowTitle, const char* graphTitle) {
     int n = static_cast<int>(UImPlot::time_vec.size());
     if (ImPlot::BeginPlot(graphTitle, ImVec2(-1, 600))) {
         ImPlot::SetupAxes(X_AXIS_1, Y_AXIS_1);
-        ImPlot::SetupAxesLimits(x_min, x_max, 0.0, UImPlot::populationMax);
+        ImPlot::SetupAxesLimits(x_min, x_max, 0.0, UImPlot::populationMax / 1000);
                 
         if (y2_axis) {
             ImPlot::SetupAxis(ImAxis_Y2, Y_AXIS_2, ImPlotAxisFlags_AuxDefault);
-            ImPlot::SetupAxisLimits(ImAxis_Y2, -100.0, 100.0);
+            ImPlot::SetupAxisLimits(ImAxis_Y2, UImPlot::temperatureMin, UImPlot::temperatureMax);
         }
         if (y3_axis) {
             ImPlot::SetupAxis(ImAxis_Y3, Y_AXIS_3, ImPlotAxisFlags_AuxDefault);
-            ImPlot::SetupAxisLimits(ImAxis_Y3, 0.0, 3000.0);
+            ImPlot::SetupAxisLimits(ImAxis_Y3, UImPlot::foodMin, UImPlot::foodMax / 1000);
         }
 
         if (n > 1) {

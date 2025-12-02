@@ -22,3 +22,5 @@ void SetStyling();
 void DisplayRibbon(ImFont* font);
 
 void DisplayData(ImFont* font, float deltaTime);
+
+void PrintImGuiSettings();

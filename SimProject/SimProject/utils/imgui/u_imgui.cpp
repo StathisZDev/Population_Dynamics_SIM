@@ -25,6 +25,8 @@ void SetStyling()
 	style.ChildRounding = 0.0f;
 	style.PopupRounding = 0.0f;
 
+	style.FontScaleMain = 1.0f;
+
 	// 3. Compact the spacing if it feels "bloated"
 	style.ItemSpacing = ImVec2(8, 4);
 	style.FramePadding = ImVec2(4, 3);
@@ -102,4 +104,23 @@ void DisplayRibbon(ImFont* font) {
 	ImGui::PopFont();
 	ImGui::End();
 	ImGui::PopStyleColor();
+}
+
+// ---------------------------------------------
+// DEBUGGING FUNCTIONS
+// ---------------------------------------------
+void PrintImGuiSettings() {
+	ImGui::Begin("Debug Info");
+	ImGuiIO& io = ImGui::GetIO();
+
+	// 1. How big does ImGui think the screen is?
+	ImGui::Text("Display Size: %.0f x %.0f", io.DisplaySize.x, io.DisplaySize.y);
+
+	// 2. Is there a framebuffer scale applied?
+	ImGui::Text("Framebuffer Scale: %.2f x %.2f", io.DisplayFramebufferScale.x, io.DisplayFramebufferScale.y);
+
+	// 3. What is the global font scale?
+	ImGui::Text("Font Global Scale: %.2f", io.FontGlobalScale);
+
+	ImGui::End();
 }
