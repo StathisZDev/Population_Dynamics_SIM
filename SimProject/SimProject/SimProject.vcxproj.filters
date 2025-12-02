@@ -49,6 +49,9 @@
     <Filter Include="libs\implot">
       <UniqueIdentifier>{19a1ea96-8a4e-4ac9-9933-6540f39d3f28}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utils\implot">
+      <UniqueIdentifier>{11deb64b-12ff-4d99-9ef5-9ce2703e15fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libs\imgui\imgui.cpp">
@@ -101,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="libs\implot\implot_items.cpp">
       <Filter>libs\implot</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\implot\u_implot.cpp">
+      <Filter>utils\implot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -413,6 +419,12 @@
     <ClInclude Include="libs\implot\implot_internal.h">
       <Filter>libs\implot</Filter>
     </ClInclude>
+    <ClInclude Include="utils\implot\constants.h">
+      <Filter>utils\implot</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\implot\u_implot.h">
+      <Filter>utils\implot</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="utils\NamingConventions.txt">
@@ -427,6 +439,10 @@
     <Text Include="fonts\README.txt">
       <Filter>Fonts</Filter>
     </Text>
+    <Text Include="utils\implot\Plots.txt">
+      <Filter>utils\implot</Filter>
+    </Text>
+    <Text Include="ImplotChangesLog.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libs\sdl\README.md">
@@ -450,6 +466,7 @@
     <None Include="libs\sdl\cmake\SDL3Config.cmake">
       <Filter>libs\sdl\cmake</Filter>
     </None>
+    <None Include="ThirdPartyLibs.props" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libs\sdl\lib\SDL3.lib">

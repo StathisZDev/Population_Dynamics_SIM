@@ -35,6 +35,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\timer_manager.cpp" />
     <ClCompile Include="utils\imgui\u_imgui.cpp" />
+    <ClCompile Include="utils\implot\u_implot.cpp" />
     <ClCompile Include="utils\sdl\u_sdl.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,12 +141,16 @@
     <ClInclude Include="libs\sdl\include\SDL3\SDL_video.h" />
     <ClInclude Include="libs\sdl\include\SDL3\SDL_vulkan.h" />
     <ClInclude Include="utils\imgui\u_imgui.h" />
+    <ClInclude Include="utils\implot\constants.h" />
+    <ClInclude Include="utils\implot\u_implot.h" />
     <ClInclude Include="utils\sdl\u_sdl.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="fonts\OFL.txt" />
     <Text Include="fonts\README.txt" />
+    <Text Include="ImplotChangesLog.txt" />
     <Text Include="libs\sdl\LICENSE.txt" />
+    <Text Include="utils\implot\Plots.txt" />
     <Text Include="utils\NamingConventions.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +161,7 @@
     <None Include="libs\sdl\INSTALL.md" />
     <None Include="libs\sdl\lib\SDL3.dll" />
     <None Include="libs\sdl\README.md" />
+    <None Include="ThirdPartyLibs.props" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libs\sdl\lib\SDL3.lib" />
@@ -208,7 +214,8 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+	<Import Project="ThirdPartyLibs.props" Condition="Exists('ThirdPartyLibs.props')" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
