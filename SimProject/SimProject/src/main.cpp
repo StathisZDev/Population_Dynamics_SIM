@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 		return -1;
 	}
 
-	int number = 0;   // Αυτό χρειάζεται;
+	int number = 0;   
 
 	// SDL window properties
 	SDL_PropertiesID props = SDL_CreateProperties();
