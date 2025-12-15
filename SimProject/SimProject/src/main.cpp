@@ -14,6 +14,7 @@
 
 void FunctionTest();
 
+
 int main(int argc, char* argv[])
 {
 	// ---------------------------------
@@ -33,6 +34,7 @@ int main(int argc, char* argv[])
 	}
 
 	int number = 0;   
+
 
 	// SDL window properties
 	SDL_PropertiesID props = SDL_CreateProperties();
@@ -57,6 +59,9 @@ int main(int argc, char* argv[])
 	}
 
 	//SDL_SetWindowSize(window, windowWidth, windowHeight);
+	window = SDL_CreateWindow("SDL3 Test Window!", 0, 0, WINDOW_SETTING_DEFAULT);
+	SDL_SetWindowSize(window, windowWidth, windowHeight);
+
 	renderer = SDL_CreateRenderer(window, nullptr);
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 1);
@@ -80,13 +85,6 @@ int main(int argc, char* argv[])
 	// Main loop setup
 	float curTime = 0.f;
 	bool running = true;
-	bool done = false;
-	bool opened = true;
-	bool checkbox1 = false;
-	bool checkbox2 = false;
-	float value1 = 0.1f;
-	int zoom = 1;
-
 	
 	InitializeData();  // Defined in u_implot.cpp
 	GlobalState::InitializeGlobalState(STARTING_FOOD, STARTING_TEMPERATURE, ToxityLevel::DISABLED, Fertility::DISABLED, STARTING_POPULATION,BacteriaTempType::PSYCHROPHILES); 
@@ -95,6 +93,14 @@ int main(int argc, char* argv[])
 	// ------------------------------------
 	// MAIN LOOP
 	// ------------------------------------
+
+	bool done = false;
+	bool opened = true;
+	bool checkbox1 = false;
+	bool checkbox2 = false;
+	float value1 = 0.1f;
+	int zoom = 1;
+
 	while (running)
 	{
 		SDL_Event event;
@@ -111,26 +117,6 @@ int main(int argc, char* argv[])
 		ImGui_ImplSDL3_NewFrame();
 		ImGui::NewFrame();
 
-		ImGui::SetNextWindowSize(ImVec2(200, 300));
-		if (ImGui::Begin("Menu", &opened, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize)) {
-
-			if (ImGui::Button("Start")) {
-
-			}
-			if (ImGui::Button("Stop")) {
-
-			}
-			if (ImGui::Button("Reset")) {
-
-			}
-
-			ImGui::Checkbox("Turn On/Off", &checkbox1);
-			ImGui::Checkbox("Turn On/Off No2", &checkbox2);
-
-			ImGui::SliderFloat("Slider 1", &value1, 0.0f, 10.0f);
-			ImGui::SliderInt("Zoom", &zoom, 0, 10);
-		}
-		ImGui::End();
 
 		TimerManager::Update();
 		TimerManager::SetTimerByEvent(GlobalState::Update, WORLD_UPDATE_FREQUENCY, TimerManager::elapsedTime);
@@ -165,6 +151,33 @@ int main(int argc, char* argv[])
 		// RENDERING
 		// --------------------------------------------
 		ImGui::Render();
+
+		ImGui::SetNextWindowSize(ImVec2(200, 300));
+		if (ImGui::Begin("Menu", &opened, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize)) {
+
+			if (ImGui::Button("Start")) {
+
+			}
+			if (ImGui::Button("Stop")) {
+
+			}
+			if (ImGui::Button("Reset")) {
+
+			}
+
+			ImGui::Checkbox("Turn On/Off", &checkbox1);
+			ImGui::Checkbox("Turn On/Off No2", &checkbox2);
+
+			ImGui::SliderFloat("Slider 1", &value1, 0.0f, 10.0f);
+			ImGui::SliderInt("Zoom", &zoom, 0, 10);
+		}
+		ImGui::End();
+
+		TimerManager::Update();
+		TimerManager::SetTimerByEvent(FunctionTest, 5, TimerManager::deltaTime);
+		ImGuiTest(TimerManager::deltaTime);
+
+
 		SDL_SetRenderDrawColor(renderer, 36, 36, 36, 1);
 		SDL_RenderClear(renderer);
 
