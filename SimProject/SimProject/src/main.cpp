@@ -12,6 +12,8 @@
 #include <includes/settings.h>
 #include <iostream>
 
+void FunctionTest();
+
 int main(int argc, char* argv[])
 {
 	// ---------------------------------
@@ -77,8 +79,14 @@ int main(int argc, char* argv[])
 
 	// Main loop setup
 	float curTime = 0.f;
-
 	bool running = true;
+	bool done = false;
+	bool opened = true;
+	bool checkbox1 = false;
+	bool checkbox2 = false;
+	float value1 = 0.1f;
+	int zoom = 1;
+
 	
 	InitializeData();  // Defined in u_implot.cpp
 	GlobalState::InitializeGlobalState(STARTING_FOOD, STARTING_TEMPERATURE, ToxityLevel::DISABLED, Fertility::DISABLED, STARTING_POPULATION,BacteriaTempType::PSYCHROPHILES); 
@@ -98,9 +106,31 @@ int main(int argc, char* argv[])
 			}
 			ImGui_ImplSDL3_ProcessEvent(&event);
 		}
+		number++;
 		ImGui_ImplSDLRenderer3_NewFrame();
 		ImGui_ImplSDL3_NewFrame();
 		ImGui::NewFrame();
+
+		ImGui::SetNextWindowSize(ImVec2(200, 300));
+		if (ImGui::Begin("Menu", &opened, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize)) {
+
+			if (ImGui::Button("Start")) {
+
+			}
+			if (ImGui::Button("Stop")) {
+
+			}
+			if (ImGui::Button("Reset")) {
+
+			}
+
+			ImGui::Checkbox("Turn On/Off", &checkbox1);
+			ImGui::Checkbox("Turn On/Off No2", &checkbox2);
+
+			ImGui::SliderFloat("Slider 1", &value1, 0.0f, 10.0f);
+			ImGui::SliderInt("Zoom", &zoom, 0, 10);
+		}
+		ImGui::End();
 
 		TimerManager::Update();
 		TimerManager::SetTimerByEvent(GlobalState::Update, WORLD_UPDATE_FREQUENCY, TimerManager::elapsedTime);
@@ -153,3 +183,8 @@ int main(int argc, char* argv[])
 	exit(0);
 }
 
+void FunctionTest()
+{
+	printf("Function Call by timer Succesfull\n");
+}
+//https://pthom.github.io/imgui_manual_online/manual/imgui_manual.html
