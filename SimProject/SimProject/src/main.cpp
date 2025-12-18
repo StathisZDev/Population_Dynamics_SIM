@@ -59,7 +59,6 @@ int main(int argc, char* argv[])
 	}
 
 	//SDL_SetWindowSize(window, windowWidth, windowHeight);
-	window = SDL_CreateWindow("SDL3 Test Window!", 0, 0, WINDOW_SETTING_DEFAULT);
 	SDL_SetWindowSize(window, windowWidth, windowHeight);
 
 	renderer = SDL_CreateRenderer(window, nullptr);
@@ -136,6 +135,29 @@ int main(int argc, char* argv[])
 		// IMGUI WINDOWS
 		// Add each new window using the format below
 		// ------------------------------------------------------------------
+		// MENU WINDOW
+		ImGui::SetNextWindowSize(ImVec2(200, 300));
+		if (ImGui::Begin("Menu", &opened, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize)) {
+			//BUTTONS
+			if (ImGui::Button("Start")) {
+
+			}
+			if (ImGui::Button("Stop")) {
+
+			}
+			if (ImGui::Button("Reset")) {
+
+			}
+
+			//CHECKBOXES
+			ImGui::Checkbox("Turn On/Off", &checkbox1);
+			ImGui::Checkbox("Turn On/Off No2", &checkbox2);
+
+			//SLIDERS
+			ImGui::SliderFloat("Slider 1", &value1, 0.0f, 10.0f);
+			ImGui::SliderInt("Zoom", &zoom, 0, 10);
+		}
+		ImGui::End();
 
 		// Window 1: This window will store a ribbon of options
 		DisplayRibbon(font);
@@ -152,30 +174,9 @@ int main(int argc, char* argv[])
 		// --------------------------------------------
 		ImGui::Render();
 
-		ImGui::SetNextWindowSize(ImVec2(200, 300));
-		if (ImGui::Begin("Menu", &opened, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize)) {
-
-			if (ImGui::Button("Start")) {
-
-			}
-			if (ImGui::Button("Stop")) {
-
-			}
-			if (ImGui::Button("Reset")) {
-
-			}
-
-			ImGui::Checkbox("Turn On/Off", &checkbox1);
-			ImGui::Checkbox("Turn On/Off No2", &checkbox2);
-
-			ImGui::SliderFloat("Slider 1", &value1, 0.0f, 10.0f);
-			ImGui::SliderInt("Zoom", &zoom, 0, 10);
-		}
-		ImGui::End();
-
 		TimerManager::Update();
 		TimerManager::SetTimerByEvent(FunctionTest, 5, TimerManager::deltaTime);
-		ImGuiTest(TimerManager::deltaTime);
+		
 
 
 		SDL_SetRenderDrawColor(renderer, 36, 36, 36, 1);
