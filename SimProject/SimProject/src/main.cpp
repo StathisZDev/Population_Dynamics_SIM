@@ -174,10 +174,6 @@ int main(int argc, char* argv[])
 		// --------------------------------------------
 		ImGui::Render();
 
-		TimerManager::Update();
-		TimerManager::SetTimerByEvent(FunctionTest, 5, TimerManager::deltaTime);
-		
-
 
 		SDL_SetRenderDrawColor(renderer, 36, 36, 36, 1);
 		SDL_RenderClear(renderer);
